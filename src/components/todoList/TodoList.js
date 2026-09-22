@@ -1,16 +1,20 @@
-import DB from "../../DB.js";
-import Todo from "../todo/Todo.js";
+import DB from "../../DB";
+import Todo from "../todo/Todo";
+import getTemplate from "./template";
 
 export default class TodoList {
   constructor(data) {
-    this.domElement = document.querySelector(data.el);
-    DB.setApiUrl(data.apiUrl);
+    DB.setApiURL(data.apiURL);
+    this.title = data.title ?? "My TodoList";
+    this.domEl = document.querySelector(data.el);
     this.todos = [];
-    this.loadTodos();
   }
   async loadTodos() {
     const todos = await DB.findAll();
-    this.todos = [...todos.map((data) => new Todo(data))];
-    console.table(this.todos);
+    this.todos = [...todos.map((todo) => new Todo(todo))];
+  }
+  async render() {
+    await this.loadTodos();
+    this.domEl.innerHTML = getTemplate(this);
   }
 }

@@ -1,6 +1,3 @@
-# TODO_MVS_COMPONENTS_2026
-
-
 # Guide d'accompagnement — TodoList Modern Vanilla JS
 ## EAFC Charlemagne — BES Webdeveloper A2
 ## Pascal Lacroix — ©Pascal Lacroix 2026

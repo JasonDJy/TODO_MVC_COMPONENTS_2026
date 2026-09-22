@@ -1,10 +1,9 @@
 export default class DB {
-  static setApiUrl(apiUrl) {
-    this.apiUrl = apiUrl;
+  static setApiURL(url) {
+    this.apiURL = url;
   }
-
   static async findAll() {
-    const response = await fetch(this.apiUrl + "todos");
+    const response = await fetch(this.apiURL + "/todos");
     return response.json();
   }
 }
